@@ -1,2 +1,1 @@
-public enum Suit { heart, diamond, spade, clubs
-}
+public enum Suit { heart, diamond, spade, clubs }
