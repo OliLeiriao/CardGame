@@ -1,23 +1,21 @@
 public class Card {
 
-    final private Suit suit;
-    final private int strength;
+    final private String suit;
+    final private String rankName;
+    final private int rank;
 
-    /** Constructor
-     *
-     * @param suit of card
-     * @param strength value of card
-     */
-    public Card(Suit suit, int strength){
-        this.suit = suit;
-        this.strength = strength;
+
+    public Card(Suit suit, Rank rank){
+        this.suit = suit.getSuit();
+        this.rankName = rank.getName();
+        this.rank = rank.getVal();
     }
 
     /**
      *
      * @return suit of card
      */
-    public Suit getSuit() {
+    public String getSuit() {
         return suit;
     }
 
@@ -25,15 +23,12 @@ public class Card {
      *
      * @return strength of card
      */
-    public int getStrength() {
-        return strength;
+    public int getRank() {
+        return rank;
     }
 
     @Override
     public String toString() {
-        return "Card{" +
-                "suit=" + suit +
-                ", strength=" + strength +
-                '}';
+        return rankName + " of " + suit;
     }
 }

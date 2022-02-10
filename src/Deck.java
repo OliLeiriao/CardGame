@@ -13,11 +13,11 @@ public class Deck {
 
         this.deck = new ArrayList<>();
 
-        for(Suit suit : Suit.values()){
+        for(Suit s : Suit.values()){
 
-            for(int i = 1; i<14; i++){
+            for(Rank r : Rank.values()){
 
-                deck.add(new Card(suit, i));
+                deck.add(new Card(s, r));
 
             }
 
@@ -44,15 +44,6 @@ public class Deck {
 
     /**
      *
-     * @return one card drawn from remaining in deck
-     * @throws IllegalStateException if deck has no more cards.
-     */
-    public Card dealCard(){
-        return null;
-    }
-
-    /**
-     *
      * @return deck object
      */
     public List<Card> getDeck() {
@@ -69,8 +60,12 @@ public class Deck {
     /**
      *
      * @return draws a card from the deck, and removes it from the deck.
+     * @throws IllegalStateException if deck has no more cards.
      */
     public Card drawCard(){
+        if(deck.size() == 0){
+            throw new IllegalStateException ("Deck is empty");
+        }
         Card drawn = deck.get(0);
         deck.remove(0);
         return drawn;

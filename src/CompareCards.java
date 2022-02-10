@@ -21,9 +21,9 @@ public class CompareCards {
      * @return the higher card from the pair, null, if they are equal.
      */
     public Card getHigherCard(){
-        if(card1.getStrength() < card2.getStrength()){
+        if(card1.getRank() < card2.getRank()){
             return card2;
-        }else if(card1.getStrength() > card2.getStrength()){
+        }else if(card1.getRank() > card2.getRank()){
             return card1;
         }else{
             return null;
