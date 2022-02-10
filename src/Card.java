@@ -1,18 +1,31 @@
 public class Card {
 
-    Suit suit;
-    Strength strength;
+    final private Suit suit;
+    final private int strength;
 
-    public Card(Suit suit, Strength strength){
+    /** Constructor
+     *
+     * @param suit of card
+     * @param strength value of card
+     */
+    public Card(Suit suit, int strength){
         this.suit = suit;
         this.strength = strength;
     }
 
+    /**
+     *
+     * @return suit of card
+     */
     public Suit getSuit() {
         return suit;
     }
 
-    public Strength getStrength() {
+    /**
+     *
+     * @return strength of card
+     */
+    public int getStrength() {
         return strength;
     }
 

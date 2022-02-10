@@ -1,20 +1,24 @@
+import java.util.*;
+
+import static java.util.Collections.shuffle;
+
 public class Deck {
 
-    private Card[] deck;
+    private final List<Card> deck;
 
     /**
      * Constructor
      */
     public Deck(){
 
-        this.deck = new Card[52];
+        this.deck = new ArrayList<>();
 
-        int count = 0;
         for(Suit suit : Suit.values()){
 
-            for(Strength strength : Strength.values()){
-                deck[count] = new Card(suit, strength);
-                count++;
+            for(int i = 1; i<14; i++){
+
+                deck.add(new Card(suit, i));
+
             }
 
         }
@@ -25,13 +29,8 @@ public class Deck {
      * Put all the used cards back into the deck,
      * and shuffle it into a random order.
      */
-    public void shuffle(){
-        for (int i = deck.length-1; i > 0; i--) {
-            int rand = (int)(Math.random()*(i+1));
-            Card temp = deck[i];
-            deck[i] = deck[rand];
-            deck[rand] = temp;
-        }
+    public void shuffleDeck(){
+        shuffle(deck);
     }
 
 
@@ -40,7 +39,7 @@ public class Deck {
      * @return number of cards left in the deck.
      */
     public int cardsLeft(){
-        return 0;
+        return deck.size();
     }
 
     /**
@@ -52,13 +51,28 @@ public class Deck {
         return null;
     }
 
-    public Card[] getDeck() {
+    /**
+     *
+     * @return deck object
+     */
+    public List<Card> getDeck() {
         return deck;
     }
+
 
     public void printDeck(){
         for(Card c : deck){
             System.out.println(c.toString());
         }
+    }
+
+    /**
+     *
+     * @return draws a card from the deck, and removes it from the deck.
+     */
+    public Card drawCard(){
+        Card drawn = deck.get(0);
+        deck.remove(0);
+        return drawn;
     }
 }
