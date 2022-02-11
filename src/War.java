@@ -17,7 +17,7 @@ public class War {
      *
      * Plays a simple round of War, printing players' hands and winner's name to console.
      */
-    public void turn(){
+    public String turn(){
 
         // each player draws a card from the deck, and adds it to their hand;
         for(Player p : players){
@@ -25,19 +25,37 @@ public class War {
             p.drawCard(drawn);
         }
 
-        Card p1Card = players.get(0).playCard(0);
-        System.out.println(players.get(0).getName() + "'s card: " + p1Card.toString());
-        Card p2Card = players.get(1).playCard(0);
-        System.out.println(players.get(1).getName() + "'s card: " + p2Card.toString());
+        /**
+         * Cards are compared, returns string of winner:
+         */
+        if(players.get(0).getNextCard().getRank() > players.get(1).getNextCard().getRank()){
 
-        if(p1Card.getRank() > p2Card.getRank()){
-            System.out.println(players.get(0).getName() + " wins!");
-        }else if(p1Card.getRank() < p2Card.getRank()){
-            System.out.println(players.get(1).getName() + " wins!");
+            return players.get(0).getName() + " wins!";
+
+        }else if(players.get(0).getNextCard().getRank() < players.get(1).getNextCard().getRank()){
+
+           return players.get(1).getName() + " wins!";
+
         }else{
-            System.out.println("It's a tie!");
+
+            return "It's a tie!";
+            
         }
 
+    }
+
+    /**
+     * 
+     * @return list of strings of players and the card they played.
+     */
+    public List<String> getPlayedCards(){
+        List<String> plays = new ArrayList<>();
+
+        for(Player p : players){
+            plays.add(p.getName() + "'s card: " + p.playCard(0).toString());
+        }
+
+        return plays;
     }
 
 

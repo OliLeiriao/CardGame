@@ -32,6 +32,10 @@ public class Player {
         return c;
     }
 
+    public Card getNextCard(){
+        return hand.get(0);
+    }
+
     /**
      * @param index of card from hand to be played.
      * @return Card to be played

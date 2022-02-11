@@ -1,29 +1,54 @@
 import javax.swing.*;
-import java.awt.*;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
 
 public class GUI implements ActionListener {
 
-
-    private int count = 0;
-    private final JLabel label;
+    private final JLabel label1;
+    public War war;
+    public Deck deck;
+    public List<Player> players;
 
     public GUI(){
+
+        /**
+         * Game stuff:
+        
+        deck = new Deck();
+        players.add(new Player("Gab"));
+        players.add(new Player("Jo"));
+        war = new War(deck, players);
+        */
+
+
         JFrame frame = new JFrame();
 
-        JButton button = new JButton("CLICK ME");
+        /**
+         * Button
+         */
+        JButton button = new JButton("War!");
         button.addActionListener(this);
 
-        label = new JLabel("Number of clicks: 0");
+        /**
+         * Label for text
+         */
+        label1 = new JLabel("Number of clicks: 0");
 
+        /**
+         * Panel parameters
+         */
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(300, 300, 100, 300));
         panel.setLayout(new GridLayout(0,1));
         panel.add(button);
-        panel.add(label);
+        panel.add(label1);
 
-
+        /**
+         * Frame parameters
+         */
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Simple");
@@ -38,7 +63,8 @@ public class GUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        count++;
-        label.setText("Number of clicks: " + count);
+        
+        label1.setText("hi");
+
     }
 }
