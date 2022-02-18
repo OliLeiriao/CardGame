@@ -58,5 +58,12 @@ public class Player {
         return this.name;
     }
 
+    /**
+     * @return String of cards currently in player's hand.
+     */
+    public String getHand(){
+        return this.hand.toString();
+    }
+
 
 }

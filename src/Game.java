@@ -6,42 +6,41 @@ public class Game {
 
     public static void main(String[] args){
 
-        /**
-         * Initialize Deck
-         */
+        //
+        // Initialize Deck
+
         Deck d = new Deck();
         d.shuffleDeck();
 
-        /**
-         * Initialize computer player
-         */
+        //
+        // Initialize computer player
+
         Player comp = new Player("Greg");
 
-        /**
-         * Initialize human player, to play through command line.
-         */
+        //
+        // Initialize human player, to play through command line.
+
         System.out.println("\n\n\n\n\n\n\nWhat is your name?");
         
         Scanner sc = new Scanner(System.in);
         String pName = sc.nextLine();
         Player human = new Player(pName);
 
-        /**
-         * Game Intro Screen
-         */
-        System.out.println("\n\nHello, "+ pName + "\nWelcome to \n!!!!!!!!!!!!!!!!!!!\n\tWAR\n!!!!!!!!!!!!!!!!!!!");
+        //
+        // Game Intro Screen
+
+        System.out.println("\n\n\n\n\n\n\nHello, "+ pName + "\nWelcome to \n!!!!!!!!!!!!!!!!!!!\n\tWAR\n!!!!!!!!!!!!!!!!!!!");
         System.out.println("Your opponent is: " + comp.getName());
 
         List<Player> players = new ArrayList<>();
         players.add(comp);
         players.add(human);
 
-        System.out.println("\n\n\nReady to play? Press ENTER to continue");
+        System.out.println("\n\nReady to play? Press ENTER to continue");
         sc.nextLine();
 
-        /** 
-         * First Round
-         */
+        //
+        // First Round
         
         War war = new War(d, players);
         String result = war.turn();
@@ -49,7 +48,24 @@ public class Game {
         System.out.println("Your card: " + human.getNextCard().toString());
         System.out.println(result);
 
+    }
+
+    public void quitCheck(){
+
+        // Quit prompt
+        System.out.println("\n\nWant to play again? (y/n)");
+        Scanner sc = new Scanner(System.in);
+        String answer = sc.nextLine();
+
+
+        //if(answer.equals("y")){
+            // runs another round.
+        //}else if(answer.equals("n")){
+            // exits
+        //}
 
     }
+
+
 
 }
