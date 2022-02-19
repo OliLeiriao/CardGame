@@ -94,6 +94,11 @@ public class War {
                 System.out.println(players.get(0).getName() + ": " + p1Score);
                 System.out.println(players.get(1).getName() + ": " + p2Score);
 
+                if(war.deck.isEmpty()){
+                    System.out.println("\n\n\n\n\nDeck is empty.");
+                    break;
+                }
+
                 // Play again prompt?
                 System.out.println("\n\nPlay again? (y/n)");
 
