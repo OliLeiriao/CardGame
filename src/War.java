@@ -78,15 +78,18 @@ public class War {
                 // 1 --> p2 wins
                 // 2 --> tie
                 switch (result) {
-                    case 0 -> {
+                    case 0 :{
                         System.out.println(players.get(0).getName() + " wins!");
                         p1Score++;
+                        break;
                     }
-                    case 1 -> {
+                    case 1 : {
                         System.out.println(players.get(1).getName() + " wins!");
                         p2Score++;
+                        break;
                     }
-                    case 2 -> System.out.println("It's a tie!");
+                    case 2 :
+                        System.out.println("It's a tie!");
                 }
 
                 // Print Scoreboard:
