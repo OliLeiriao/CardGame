@@ -5,6 +5,7 @@ public class Player {
 
     private final String name;
     private final List<Card> hand;
+    private List<Card> boardHand;
 
     public Player(String name){
         this.name = name;
@@ -21,7 +22,7 @@ public class Player {
 
     /**
      *
-     * @return the card in position 0 of player's hand.
+     * @return Card object in position 0 of player's hand.
      */
     public Card playTopCard(){
         if(hand.size() == 0){
@@ -32,8 +33,13 @@ public class Player {
         return c;
     }
 
-    public Card getNextCard(){
-        return hand.get(0);
+    /**
+     *
+     * @param position of card to get from hand
+     * @return the card at requested position
+     */
+    public Card getCardAt(int position){
+        return hand.get(position);
     }
 
     /**
@@ -51,8 +57,48 @@ public class Player {
         return play;
     }
 
+    public void dealBoardHand(List<Card> cards){
+        this.boardHand = new ArrayList<>();
+        this.boardHand.addAll(cards);
+
+    }
+
+
+    /////////////////////////////////////////////
+    // GET METHODS FOR STRINGS OF PLAYER STUFF //
+    /////////////////////////////////////////////
     /**
-     * @return name of player
+     *
+     * @return String of board hand left, including info about top cards visible.
+     */
+    public String getBoardHand(){
+
+        String result = "Remaining in Board: " + this.boardHand.size();
+
+        switch (this.boardHand.size()) {
+            case 6 -> {
+                result += "\nTop Cards: ";
+                result += this.boardHand.get(0).toString() + ", ";
+                result += this.boardHand.get(1).toString() + ", ";
+                result += this.boardHand.get(2).toString() + " ";
+            }
+            case 5 -> {
+                result += "\nTop Cards: ";
+                result += this.boardHand.get(0).toString() + ", ";
+                result += this.boardHand.get(1).toString() + " ";
+            }
+            case 4 -> {
+                result += "\nTop Cards: ";
+                result += this.boardHand.get(0).toString() + " ";
+            }
+        }
+
+        return result;
+
+    }
+
+    /**
+     * @return String of name of player
      */
     public String getName(){
         return this.name;
@@ -63,6 +109,10 @@ public class Player {
      */
     public String getHand(){
         return this.hand.toString();
+    }
+
+    public int getHandSize(){
+        return this.hand.size();
     }
 
 

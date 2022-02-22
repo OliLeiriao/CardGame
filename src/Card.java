@@ -31,4 +31,12 @@ public class Card {
     public String toString() {
         return rankName + " of " + suit;
     }
+
+    /**
+     *
+     * @return boolean of whether this card is a "Special" card in Oxford
+     */
+    public boolean isSpecial(){
+        return this.rank == 2 || this.rank == 3 || this.rank == 9 || this.rank == 10;
+    }
 }
