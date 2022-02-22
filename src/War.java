@@ -132,8 +132,8 @@ public class War {
         }
 
         // Prints out each player's card
-        System.out.println(players.get(0).getName() + "'s card: " + players.get(0).getNextCard().toString());
-        System.out.println("Your card: " + players.get(1).getNextCard().toString());
+        System.out.println(players.get(0).getName() + "'s card: " + players.get(0).getCardAt(0).toString());
+        System.out.println("Your card: " + players.get(1).getCardAt(0).toString());
 
 
         // Cards are played and compared, returns code of winner:
